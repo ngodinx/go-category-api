@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 module kasir-api
 
 go 1.25.6
+=======
+module go-category-api
+
+go 1.23.0
+>>>>>>> 250e41192cb496aed92524985be4d884a86af25c
 
 require (
 	github.com/lib/pq v1.10.9

@@ -1,4 +1,4 @@
-module go-category-api
+module kasir-api
 
 go 1.25
 

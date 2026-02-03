@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kasir API — Docs</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css">
+    <link rel="stylesheet" href="/swagger-ui/neo.css">
+</head>
+
+<body>
+    <div class="neo-shell">
+        <header class="neo-header">
+            <div class="neo-brand">
+                <div class="neo-badge">NEO</div>
+                <div>
+                    <h1 class="neo-title">Kasir API Docs</h1>
+                    <p class="neo-subtitle">Swagger UI with neobrutal vibes</p>
+                </div>
+            </div>
+
+            <div class="neo-actions">
+                <!-- Theme Control Group -->
+                <div class="neo-control">
+                    <label class="neo-label">Appearance</label>
+
+                    <!-- Custom Modern Dropdown -->
+                    <div class="neo-dropdown" id="theme-dropdown">
+                        <!-- Trigger Button -->
+                        <div class="neo-select-trigger" role="button" tabindex="0" id="theme-trigger">
+                            <span id="theme-text">Neobrutalism</span>
+                            <!-- Icon Chevron Down -->
+                            <svg class="neo-select-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+
+                        <!-- Dropdown Menu -->
+                        <div class="neo-dropdown-menu">
+                            <div class="neo-dropdown-item" data-value="neo">
+                                <span>Neo</span>
+                            </div>
+                            <div class="neo-dropdown-item" data-value="light">
+                                <span>Light</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="btn-spec" href="/swagger/doc.json" target="_blank" rel="noreferrer">Open spec</a>
+            </div>
+        </header>
+
+        <main class="neo-card">
+            <div id="swagger-ui"></div>
+        </main>
+
+        <footer class="neo-footer">
+            <span>Base: <strong id="baseurl">/</strong></span>
+            <span>Theme: <strong id="theme-display">Neobrutalism</strong></span>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+    <script>
+        // 1. Swagger Init
+        const specUrl = "/swagger/doc.json";
+        window.ui = SwaggerUIBundle({
+            url: specUrl,
+            dom_id: "#swagger-ui",
+            deepLinking: true,
+            persistAuthorization: true,
+            displayRequestDuration: true,
+            filter: true,
+            tryItOutEnabled: false
+        });
+
+        document.getElementById("baseurl").textContent = "/";
+
+        // 2. Custom Dropdown & Theme Logic
+        const dropdown = document.getElementById('theme-dropdown');
+        const trigger = document.getElementById('theme-trigger');
+        const themeText = document.getElementById('theme-text');
+        const items = document.querySelectorAll('.neo-dropdown-item');
+        const themeDisplay = document.getElementById('theme-display');
+        const htmlElement = document.documentElement;
+
+        // Toggle Dropdown
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Fungsi Set Theme
+        function setTheme(themeName) {
+            // Fallback for deprecated themes
+            if (themeName === 'dark') themeName = 'neo';
+
+            // Set HTML attribute
+            htmlElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('doc-theme', themeName);
+
+            // Update UI Text
+            const displayName = themeName === 'light' ? "Modern Light" : "Neobrutalism";
+            themeText.textContent = displayName;
+            themeDisplay.textContent = displayName;
+
+            // Update Active State in Menu
+            items.forEach(item => {
+                if (item.dataset.value === themeName) {
+                    item.classList.add('selected');
+                } else {
+                    item.classList.remove('selected');
+                }
+            });
+        }
+
+        // Handle Item Click
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const val = item.dataset.value;
+                setTheme(val);
+                dropdown.classList.remove('active');
+            });
+        });
+
+        // Init Load Theme
+        const savedTheme = localStorage.getItem('doc-theme') || 'neo';
+        setTheme(savedTheme);
+    </script>
+</body>
+
+</html>

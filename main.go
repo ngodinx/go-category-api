@@ -63,7 +63,25 @@ func main() {
 	http.HandleFunc("/api/kategori", categoryHandler.HandleCategories)
 	http.HandleFunc("/api/kategori/", categoryHandler.HandleCategoryByID)
 
-	http.HandleFunc("/", httpSwagger.WrapHandler)
+	// 1) Root redirect ke swagger-ui
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/" || r.URL.Path == "/index.html" {
+			http.Redirect(w, r, "/swagger-ui/", http.StatusFound)
+			return
+		}
+		http.NotFound(w, r)
+	})
+
+	// 2) Serve UI custom (neobrutal)
+	http.Handle("/swagger-ui/",
+		http.StripPrefix("/swagger-ui/",
+			http.FileServer(http.Dir("./swagger-ui")),
+		),
+	)
+
+	// 3) Serve swagger spec (doc.json) via swaggo
+	http.HandleFunc("/swagger/", httpSwagger.WrapHandler)
+
 	http.HandleFunc("/health", HealthCheck)
 
 	fmt.Println("Server running di localhost:"+config.Port)

@@ -108,7 +108,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 24px 32px;
+  padding: 24px 16px;
   background: var(--card); 
   border: var(--border);
   border-radius: var(--radius);

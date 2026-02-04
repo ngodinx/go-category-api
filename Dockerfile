@@ -14,6 +14,7 @@ FROM alpine:3.20
 WORKDIR /app
 
 COPY --from=builder /app/server .
+COPY --from=builder /app/swagger-ui ./swagger-ui
 
 EXPOSE 8080
 

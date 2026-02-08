@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 definitions:
   models.Category:
     properties:
@@ -5,15 +6,28 @@ definitions:
         type: string
       id:
         type: integer
+=======
+basePath: /
+definitions:
+  models.Category:
+    properties:
+      id:
+        type: integer
+      description:
+        type: string
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       name:
         type: string
     type: object
   models.Product:
     properties:
+<<<<<<< HEAD
       category_id:
         type: integer
       category_name:
         type: string
+=======
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       id:
         type: integer
       name:
@@ -22,6 +36,7 @@ definitions:
         type: integer
       stock:
         type: integer
+<<<<<<< HEAD
     type: object
   models.ProdukTerlaris:
     properties:
@@ -41,16 +56,33 @@ definitions:
     type: object
 info:
   contact: {}
+=======
+      category_id:
+        type: integer
+      category_name:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Dokumentasi API Kasir
+  title: Kasir API
+  version: "1.0"
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
 paths:
   /api/kategori:
     get:
       produces:
+<<<<<<< HEAD
       - application/json
+=======
+        - application/json
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       responses:
         "200":
           description: OK
           schema:
             items:
+<<<<<<< HEAD
               $ref: '#/definitions/models.Category'
             type: array
       summary: List kategori
@@ -68,10 +100,30 @@ paths:
           $ref: '#/definitions/models.Category'
       produces:
       - application/json
+=======
+              $ref: "#/definitions/models.Category"
+            type: array
+      summary: List kategori
+      tags:
+        - Kategori
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: payload
+          in: body
+          name: payload
+          required: true
+          schema:
+            $ref: "#/definitions/models.Category"
+      produces:
+        - application/json
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       responses:
         "201":
           description: Created
           schema:
+<<<<<<< HEAD
             $ref: '#/definitions/models.Category'
       summary: Buat kategori
       tags:
@@ -86,6 +138,22 @@ paths:
         type: integer
       produces:
       - application/json
+=======
+            $ref: "#/definitions/models.Category"
+      summary: Buat kategori
+      tags:
+        - Kategori
+  /api/kategori/{id}:
+    delete:
+      parameters:
+        - description: Category ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       responses:
         "200":
           description: OK
@@ -95,6 +163,7 @@ paths:
             type: object
       summary: Hapus kategori by ID
       tags:
+<<<<<<< HEAD
       - Kategori
     get:
       parameters:
@@ -105,10 +174,23 @@ paths:
         type: integer
       produces:
       - application/json
+=======
+        - Kategori
+    get:
+      parameters:
+        - description: Category ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       responses:
         "200":
           description: OK
           schema:
+<<<<<<< HEAD
             $ref: '#/definitions/models.Category'
       summary: Detail kategori by ID
       tags:
@@ -130,10 +212,34 @@ paths:
           $ref: '#/definitions/models.Category'
       produces:
       - application/json
+=======
+            $ref: "#/definitions/models.Category"
+      summary: Detail kategori by ID
+      tags:
+        - Kategori
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: Category ID
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: payload
+          in: body
+          name: payload
+          required: true
+          schema:
+            $ref: "#/definitions/models.Category"
+      produces:
+        - application/json
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       responses:
         "200":
           description: OK
           schema:
+<<<<<<< HEAD
             $ref: '#/definitions/models.Category'
       summary: Update kategori by ID
       tags:
@@ -148,11 +254,22 @@ paths:
         type: string
       produces:
       - application/json
+=======
+            $ref: "#/definitions/models.Category"
+      summary: Update kategori by ID
+      tags:
+        - Kategori
+  /api/produk:
+    get:
+      produces:
+        - application/json
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       responses:
         "200":
           description: OK
           schema:
             items:
+<<<<<<< HEAD
               $ref: '#/definitions/models.Product'
             type: array
       summary: List produk
@@ -170,10 +287,30 @@ paths:
           $ref: '#/definitions/models.Product'
       produces:
       - application/json
+=======
+              $ref: "#/definitions/models.Product"
+            type: array
+      summary: List produk
+      tags:
+        - Produk
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - description: payload
+          in: body
+          name: payload
+          required: true
+          schema:
+            $ref: "#/definitions/models.Product"
+      produces:
+        - application/json
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       responses:
         "201":
           description: Created
           schema:
+<<<<<<< HEAD
             $ref: '#/definitions/models.Product'
       summary: Buat produk
       tags:
@@ -188,6 +325,22 @@ paths:
         type: integer
       produces:
       - application/json
+=======
+            $ref: "#/definitions/models.Product"
+      summary: Buat produk
+      tags:
+        - Produk
+  /api/produk/{id}:
+    delete:
+      parameters:
+        - description: Product ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       responses:
         "200":
           description: OK
@@ -197,6 +350,7 @@ paths:
             type: object
       summary: Hapus produk by ID
       tags:
+<<<<<<< HEAD
       - Produk
     get:
       parameters:
@@ -207,10 +361,23 @@ paths:
         type: integer
       produces:
       - application/json
+=======
+        - Produk
+    get:
+      parameters:
+        - description: Product ID
+          in: path
+          name: id
+          required: true
+          type: integer
+      produces:
+        - application/json
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       responses:
         "200":
           description: OK
           schema:
+<<<<<<< HEAD
             $ref: '#/definitions/models.Product'
       summary: Detail produk by ID
       tags:
@@ -232,10 +399,34 @@ paths:
           $ref: '#/definitions/models.Product'
       produces:
       - application/json
+=======
+            $ref: "#/definitions/models.Product"
+      summary: Detail produk by ID
+      tags:
+        - Produk
+    put:
+      consumes:
+        - application/json
+      parameters:
+        - description: Product ID
+          in: path
+          name: id
+          required: true
+          type: integer
+        - description: payload
+          in: body
+          name: payload
+          required: true
+          schema:
+            $ref: "#/definitions/models.Product"
+      produces:
+        - application/json
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
       responses:
         "200":
           description: OK
           schema:
+<<<<<<< HEAD
             $ref: '#/definitions/models.Product'
       summary: Update produk by ID
       tags:
@@ -294,4 +485,10 @@ paths:
       summary: Report transaksi hari ini
       tags:
       - Report
+=======
+            $ref: "#/definitions/models.Product"
+      summary: Update produk by ID
+      tags:
+        - Produk
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
 swagger: "2.0"

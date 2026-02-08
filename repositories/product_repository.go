@@ -29,6 +29,7 @@ func (repo *ProductRepository) GetAll(name string) ([]models.Product, error) {
 	query += " ORDER BY p.id"
 
 	rows, err := repo.db.Query(query, args...)
+
 	if err != nil {
 		return nil, err
 	}

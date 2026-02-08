@@ -1,8 +1,17 @@
 {
     "swagger": "2.0",
     "info": {
+<<<<<<< HEAD
         "contact": {}
     },
+=======
+        "description": "Dokumentasi API Kasir",
+        "title": "Kasir API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "basePath": "/",
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
     "paths": {
         "/api/kategori": {
             "get": {
@@ -161,6 +170,7 @@
                     "Produk"
                 ],
                 "summary": "List produk",
+<<<<<<< HEAD
                 "parameters": [
                     {
                         "type": "string",
@@ -170,6 +180,8 @@
                         "in": "query"
                     }
                 ],
+=======
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -308,6 +320,7 @@
                     }
                 }
             }
+<<<<<<< HEAD
         },
         "/api/report": {
             "get": {
@@ -389,6 +402,8 @@
                     }
                 }
             }
+=======
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
         }
     },
     "definitions": {
@@ -428,6 +443,7 @@
                     "type": "integer"
                 }
             }
+<<<<<<< HEAD
         },
         "models.ProdukTerlaris": {
             "type": "object",
@@ -453,6 +469,8 @@
                     "type": "integer"
                 }
             }
+=======
+>>>>>>> d341803c019bcc13dfc7d5f90c14a62876d7e0da
         }
     }
 }

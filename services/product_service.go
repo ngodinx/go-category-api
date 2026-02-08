@@ -1,13 +1,8 @@
 package services
 
 import (
-<<<<<<< HEAD
 	"kasir-api/models"
 	"kasir-api/repositories"
-=======
-	"go-category-api/models"
-	"go-category-api/repositories"
->>>>>>> 250e41192cb496aed92524985be4d884a86af25c
 )
 
 type ProductService struct {
@@ -18,8 +13,8 @@ func NewProductService(repo *repositories.ProductRepository) *ProductService {
 	return &ProductService{repo: repo}
 }
 
-func (s *ProductService) GetAll() ([]models.Product, error) {
-	return s.repo.GetAll()
+func (s *ProductService) GetAll(name string) ([]models.Product, error) {
+	return s.repo.GetAll(name)
 }
 
 func (s *ProductService) Create(data *models.Product) error {

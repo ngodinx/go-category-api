@@ -2,13 +2,8 @@ package handlers
 
 import (
 	"encoding/json"
-<<<<<<< HEAD
 	"kasir-api/models"
 	"kasir-api/services"
-=======
-	"go-category-api/models"
-	"go-category-api/services"
->>>>>>> 250e41192cb496aed92524985be4d884a86af25c
 	"net/http"
 	"strconv"
 	"strings"
@@ -77,7 +72,7 @@ func (h *CategoryHandler) Create(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *CategoryHandler) GetByID(w http.ResponseWriter, r *http.Request) {
-	idStr := strings.TrimPrefix(r.URL.Path, "/api/categories/")
+	idStr := strings.TrimPrefix(r.URL.Path, "/api/kategori/")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		http.Error(w, "Invalid category ID", http.StatusBadRequest)
@@ -95,7 +90,7 @@ func (h *CategoryHandler) GetByID(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *CategoryHandler) Update(w http.ResponseWriter, r *http.Request) {
-	idStr := strings.TrimPrefix(r.URL.Path, "/api/categories/")
+	idStr := strings.TrimPrefix(r.URL.Path, "/api/kategori/")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		http.Error(w, "Invalid category ID", http.StatusBadRequest)
@@ -121,7 +116,7 @@ func (h *CategoryHandler) Update(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *CategoryHandler) Delete(w http.ResponseWriter, r *http.Request) {
-	idStr := strings.TrimPrefix(r.URL.Path, "/api/categories/")
+	idStr := strings.TrimPrefix(r.URL.Path, "/api/kategori/")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		http.Error(w, "Invalid category ID", http.StatusBadRequest)

@@ -11,7 +11,7 @@ import (
 	"strings"
 	"os"
 	"log"
-	"time/tzdata"
+	_ "time/tzdata"
 	"github.com/spf13/viper"
 	_ "kasir-api/docs"
 	httpSwagger "github.com/swaggo/http-swagger"
